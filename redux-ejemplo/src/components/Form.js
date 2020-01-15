@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addArticle, resetArticles } from "../actions/index";
 
+const mapStateToProps = state => {
+    return { title: state.title};
+};
+
 const mapDispatchToProps = {
     addArticle, resetArticles
 }
@@ -10,7 +14,7 @@ class ConnectedForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: ""
+            title: this.props.title
         };
     }
 
@@ -56,7 +60,7 @@ class ConnectedForm extends Component {
 }
 
 const Form = connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
 )(ConnectedForm);
 

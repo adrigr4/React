@@ -2,7 +2,8 @@ import { ADD_ARTICLE, RESET_ARTICLES, DELETE_ARTICLE, EDIT_ARTICLE } from '../ac
 
 const initialState = {
     articles: [{title:"Hola", id: 0}],
-    lastId: 1
+    lastId: 1, 
+    title: "hola"
 };
 
 function rootReducer(state = initialState, action){

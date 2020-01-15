@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { deleteArticle, editArticle } from "../actions/index.js";
 
 const mapStateToProps = state => {
-    return { articles: state.articles };
+    return { articles: state.articles, title: state.title};
 };
 
 const mapDispatchToProps = {
@@ -14,8 +14,7 @@ class ConnectedList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: "",
-            articles: this.props.articles
+            title: ""
         };
     }
 
@@ -25,7 +24,7 @@ class ConnectedList extends Component {
 
     handleEdit = (id) => {
         this.setState({title: "prueba"});
-        this.props.editArticle({ title: this.state.title, id: id })
+        this.props.editArticle({ title: this.state.title, id: id });
     }
 
     render() {
