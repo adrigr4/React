@@ -14,7 +14,7 @@ class ConnectedBalance extends Component {
     render() {
         return (
             <>
-                <h2 style={{textAlign: "center"}}>Bienvenido a tu banco</h2>
+                <h2 style={{textAlign: "center"}}>Banco</h2>
                 <br></br>
                 <br></br>
                 <h5>Saldo: 
@@ -23,10 +23,17 @@ class ConnectedBalance extends Component {
                         disabled="true" 
                         className="ml-5" 
                         value={this.props.balance} 
-                        style={{ flex: 1, textAlign: 'center' }} 
+                        style={{ flex: 1, textAlign: 'center'}} 
                     /> € 
                     <label 
-                        className="ml-5">Pendiente de ingreso: (<label style={{ color: 'green' }}>{this.props.saved}€</label>)
+                        className="ml-5">Pendiente: 
+                        <input 
+                        disabled="true" 
+                        className="ml-3" 
+                        value={this.props.saved} 
+                        style={{ textAlign: 'center', backgroundColor: "#8CE764", color: "black" , width: "150px"}} 
+                    />
+                    €
                     </label>
                 </h5>
                 <br></br>

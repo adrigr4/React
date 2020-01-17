@@ -4,7 +4,8 @@ const initialState = {
     balance: 100,
     saved: 0,
     max: 1000,
-    retired: 0, 
+    retired: 0,
+    alert: false, 
     message: ""
 }
 
@@ -22,7 +23,9 @@ function rootReducer(state = initialState, action) {
             balance: balance,
             saved: saved,
             max: state.max,
-            retired: state.retired
+            retired: state.retired,
+            alert: false, 
+            message: state.message
         }
     } else if (action.type === MONEY_OUT) {
         if (state.balance - parseInt(action.payload) >= 0) {
@@ -31,13 +34,29 @@ function rootReducer(state = initialState, action) {
                     balance: state.balance - parseInt(action.payload),
                     saved: state.saved,
                     max: state.max,
-                    retired: state.retired + (parseInt(action.payload))
+                    retired: state.retired + (parseInt(action.payload)),
+                    alert: false,
+                    message: state.message
                 }
-            }else{
-                alert("Límite Superado");
+            } else {
+                return {
+                    balance: state.balance,
+                    saved: state.saved,
+                    max: state.max,
+                    retired: state.retired,
+                    alert: true,
+                    message: "Límite Superado"
+                }
             }
-        }else{
-            alert("Saldo Insuficiente");
+        } else {
+            return {
+                balance: state.balance,
+                saved: state.saved,
+                max: state.max,
+                retired: state.retired,
+                alert: true,
+                message: "Saldo Insufiente"
+            }
         }
     }
     return state;

@@ -1,19 +1,36 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import Balance from './Balance.js';
 import Operations from "./Operations.js";
 import Popup from './Popup';
 import '../App.css';
 
-class App extends Component {
+const mapStateToProps = state => {
+    return { message: state.message, alert: state.alert };
+};
 
+class ConnectApp extends Component {
     constructor(props) {
         super(props);
-        this.state = { showPopup: false };
+        this.state = {
+            msg: this.props.message,
+            showPopup: this.props.alert,
+            editando: false
+        };
     }
 
-    togglePopup() {
+    static getDerivedStateFromProps(props, state) {
+        if (!state.showPopup && !state.editando) {
+            return { showPopup: props.alert, msg: props.message, editando: false};
+        } else {
+            return { showPopup: state.showPopup, msg: props.message, editando: true};
+        }
+    }
+
+    togglePopup = () => {
         this.setState({
-            showPopup: !this.state.showPopup
+            showPopup: false, 
+            editando: true
         });
     }
 
@@ -24,12 +41,10 @@ class App extends Component {
                     <Balance />
                     <Operations />
                 </div>
-                <button onClick={this.togglePopup.bind(this)}> Click To Launch Popup</button>
-
                 {this.state.showPopup ?
                     <Popup
-                        text='Límite Superado'
-                        closePopup={this.togglePopup.bind(this)}
+                        text={this.state.msg}
+                        closePopup={this.togglePopup}
                     />
                     : null
                 }
@@ -37,5 +52,9 @@ class App extends Component {
         );
     }
 }
+
+const App = connect(
+    mapStateToProps
+)(ConnectApp);
 
 export default App;

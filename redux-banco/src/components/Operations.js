@@ -44,7 +44,13 @@ class ConnectedOperations extends Component {
                         onChange={this.handleChange} 
                     /> €
                     <label 
-                        className="ml-5">Retirado: (<label style={{ color: '#FEFE6E' }}>{this.props.retired}€</label>)
+                        className="ml-5">Retirado: 
+                        <input 
+                        disabled="true" 
+                        value={this.props.retired} 
+                        style={{ marginLeft: "30px", textAlign: 'center', backgroundColor: "#EFED65", color: "black" , width: "150px"}} 
+                    />
+                    €
                     </label>
                 </h5>
                 <button  style={{marginLeft: "175px", paddingLeft: "40px", paddingRight: "40px", marginTop: "40px"}} className="btn btn-primary" onClick={this.handleIn}>Hacer ingreso</button>
