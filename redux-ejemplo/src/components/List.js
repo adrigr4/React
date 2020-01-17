@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { deleteArticle, editArticle } from "../actions/index.js";
 
 const mapStateToProps = state => {
-    return { articles: state.articles, title: state.title};
+    return {articles: state.articles};
 };
 
 const mapDispatchToProps = {
@@ -13,18 +13,14 @@ const mapDispatchToProps = {
 class ConnectedList extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            title: ""
-        };
     }
 
     handleChange = (event) => {
         this.setState({ [event.target.id]: event.target.value })
     }
 
-    handleEdit = (id) => {
-        this.setState({title: "prueba"});
-        this.props.editArticle({ title: this.state.title, id: id });
+    handleEdit = (title, id) => {
+        this.props.editArticle({title: title, id: id});
     }
 
     render() {
@@ -32,7 +28,7 @@ class ConnectedList extends Component {
         return (<ul>
             {articles.map((el) => (
                 <li><label key={el.id}><input type="text" id={el.id} value={el.title} onChange={this.handleChange}/></label>
-                    <button className="btn btn-primary ml-3" onClick={() => this.handleEdit(el.id)}>EDIT</button>
+                    <button className="btn btn-primary ml-3" onClick={() => this.handleEdit(el.title, el.id)}>EDIT</button>
                     <button className="btn btn-danger ml-1" onClick={() => this.props.deleteArticle(el.id)}>DELETE</button>
                 </li>
             ))}

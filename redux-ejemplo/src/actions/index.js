@@ -1,4 +1,4 @@
-import { ADD_ARTICLE, RESET_ARTICLES, DELETE_ARTICLE, EDIT_ARTICLE } from './action-types';
+import { ADD_ARTICLE, RESET_ARTICLES, DELETE_ARTICLE, EDIT_ARTICLE, UPDATE_ARTICLE } from './action-types';
 
 export function addArticle(payload) {
     return { type: ADD_ARTICLE, payload };
@@ -9,6 +9,9 @@ export function resetArticles() {
 export function deleteArticle(number) {
     return { type: DELETE_ARTICLE, payload: number };
 }
-export function editArticle(payload) {
-    return { type: EDIT_ARTICLE, payload };
+export function editArticle(article) {
+    return {type: EDIT_ARTICLE, payload:article};
+}
+export function updateArticle(article) {
+    return {type: UPDATE_ARTICLE, payload:article};
 }

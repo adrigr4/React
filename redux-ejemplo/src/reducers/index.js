@@ -1,32 +1,44 @@
-import { ADD_ARTICLE, RESET_ARTICLES, DELETE_ARTICLE, EDIT_ARTICLE } from '../actions/action-types';
+import { ADD_ARTICLE, RESET_ARTICLES, DELETE_ARTICLE, EDIT_ARTICLE, UPDATE_ARTICLE } from '../actions/action-types';
 
 const initialState = {
-    articles: [{title:"Hola", id: 0}],
-    lastId: 1, 
-    title: "hola"
+    articles: [{ title: "Hola", id: 1 }],
+    lastId: 1,
+    article: {}
 };
 
-function rootReducer(state = initialState, action){
+function rootReducer(state = initialState, action) {
     if (action.type === ADD_ARTICLE) {
-        return Object.assign({}, state, {
-            articles: state.articles.concat({title: action.payload.title, id: state.lastId}),
+        return {
+            articles: state.articles.concat({title: action.payload.title, id: state.lastId + 1}),
             lastId: state.lastId + 1
-        });
-    } else if (action.type === RESET_ARTICLES){
+        };
+    }
+    if (action.type === DELETE_ARTICLE) {
+        return {
+            articles: state.articles.filter(el=>el.id!==action.payload),
+            lastId: state.lastId,
+            article:{}
+        };
+    } else if (action.type === RESET_ARTICLES) {
         return Object.assign({}, state, {
             articles: []
         });
-    } else if (action.type === DELETE_ARTICLE){
-        return Object.assign({}, state, {
-            articles: state.articles.filter(item => (item.id !== action.payload))
-          });
-    }else if (action.type === EDIT_ARTICLE){
-        return Object.assign({}, state, {
-        articles: state.articles.map(article => 
-            article.id === action.payload.id ? { ...article, completed: action.payload.title } : article)
-    });
-}
-    return state;
+    } if (action.type === EDIT_ARTICLE) {
+        return {
+            articles: state.articles,
+            lastId: state.lastId,
+            article: action.payload
+        };
+    }
+    if (action.type === UPDATE_ARTICLE) {
+
+        return {
+            articles: state.articles.map(el => (el.id === state.article.id) ? { id: el.id, title: action.payload } : el),
+            lastId: state.lastId,
+            article: {}
+        };
+    }
+return state;
 };
 
 export default rootReducer;
