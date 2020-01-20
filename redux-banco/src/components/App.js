@@ -15,22 +15,22 @@ class ConnectApp extends Component {
         this.state = {
             msg: this.props.message,
             showPopup: this.props.alert,
-            editando: false
+            cerrando: false
         };
     }
 
     static getDerivedStateFromProps(props, state) {
-        if (!state.showPopup && !state.editando) {
-            return { showPopup: props.alert, msg: props.message, editando: false};
+        if (!state.showPopup && !state.cerrando) {
+            return { showPopup: props.alert, msg: props.message, cerrando: false};
         } else {
-            return { showPopup: state.showPopup, msg: props.message, editando: true};
+            return { showPopup: state.showPopup, msg: props.message, cerrando: false};
         }
     }
 
     togglePopup = () => {
         this.setState({
             showPopup: false, 
-            editando: true
+            cerrando: true
         });
     }
 

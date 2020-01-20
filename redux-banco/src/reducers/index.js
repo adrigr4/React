@@ -40,20 +40,14 @@ function rootReducer(state = initialState, action) {
                 }
             } else {
                 return {
-                    balance: state.balance,
-                    saved: state.saved,
-                    max: state.max,
-                    retired: state.retired,
+                    ...state,
                     alert: true,
                     message: "Límite Superado"
                 }
             }
         } else {
             return {
-                balance: state.balance,
-                saved: state.saved,
-                max: state.max,
-                retired: state.retired,
+                ...state,
                 alert: true,
                 message: "Saldo Insufiente"
             }

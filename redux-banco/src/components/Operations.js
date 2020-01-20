@@ -42,6 +42,7 @@ class ConnectedOperations extends Component {
                         id="quantity"
                         style={{ flex: 1, textAlign: 'center'}}
                         onChange={this.handleChange} 
+                        min={0}
                     /> €
                     <label 
                         className="ml-5">Retirado: 
