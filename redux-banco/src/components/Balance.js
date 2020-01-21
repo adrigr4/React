@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 const mapStateToProps = state => {
-    return { balance: state.balance, saved: state.saved };
+    return { balance: state.balance, saved: state.pending };
 };
 class ConnectedBalance extends Component {
     constructor(props) {

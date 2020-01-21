@@ -41,7 +41,7 @@
   color: rgb(73, 73, 73);
   background-image: url('./img/atm.png');
   background-repeat: no-repeat;
-  background-size: 60% 100%;
+  background-size: 82% 100%;
   background-position: center;
 }
 
@@ -60,20 +60,20 @@
   margin: auto;
   position: absolute;
   top: 75px;
-  left: 430px;
+  left: 320px;
 }
 
 .popup {  
-  height: 50vh;
+  height: 45vh;
   padding-top: 2vh;
   padding-left: 2vh;
   width: 765px;
-  background-color: #8097c4;
+  background-color: rgb(201, 164, 164);
   border-style: solid;
   border-color: rgb(95, 95, 95);
   margin: auto;
   position: absolute;
-  top: 75px;
+  top: 90px;
   left: 430px; 
   text-align: center;
   padding-top: 50px;
@@ -88,3 +88,19 @@
   border-radius: 20px;  
   background: white;  
 }
+
+.history {  
+  height: 50vh;
+  width: 300px;
+  background-color: #8097c4;
+  border-style: solid;
+  border-color: rgb(95, 95, 95);
+  margin: auto;
+  position: absolute;
+  top: 75px;
+  left: 1045px; 
+  padding-top: 25px;
+  border-radius: 0px 43px 0px 0px;
+-moz-border-radius: 0px 43px 0px 0px;
+-webkit-border-radius: 0px 43px 0px 0px;
+}  

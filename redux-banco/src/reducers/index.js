@@ -1,59 +1,95 @@
 import { MONEY_IN, MONEY_OUT } from '../actions/action-types';
 
 const initialState = {
-    balance: 100,
+    in: [{}],
+    out: [{}],
+    balance: 5000,
     saved: 0,
     max: 1000,
     retired: 0,
-    alert: false, 
-    message: ""
+    pending: 0,
+    alert: false,
+    error: "",
+    messages: [{}]
+}
+
+function getDate() {
+    var date = new Date().getDate(); //Current Date
+    var month = new Date().getMonth() + 1; //Current Month
+    var year = new Date().getFullYear(); //Current Year
+    var hours = new Date().getHours(); //Current Hours
+    var min = new Date().getMinutes(); //Current Minutes
+    var sec = new Date().getSeconds();
+    return (date + '/' + month + '/' + year + ' ' + hours + ':' + min + ':' + sec);
+}
+
+function checkLimits(ingresos, max){
+    return ingresos.reduce((a, b) => {(a.date > getDate() && b.date > getDate() ? return (a.money + b.money ) : null )});
 }
 
 function rootReducer(state = initialState, action) {
+    let newState = {...state};
+    console.log(checkLimits(state.in, state.max));
+    let quantity = parseInt(action.payload);
     if (action.type === MONEY_IN) {
-        let balance = 0, saved = 0;
-        if (state.balance + parseInt(action.payload) > state.max) {
-            balance = state.max;
-            saved = state.saved + (state.balance + parseInt(action.payload)) - state.max;
+        if (state.saved + quantity >= state.max) {
+            newState = {
+                ...state,
+                error: "",
+                alert: false,
+                saved: state.saved + ((state.max - state.saved)),
+                pending: state.pending + (quantity - state.max + state.saved),
+                balance: state.balance + state.max - state.saved,
+                in: state.in.concat({ money: quantity, time: getDate() }),
+                messages: state.messages.concat({ money: quantity, time: getDate() })
+            }
         } else {
-            balance = state.balance + parseInt(action.payload);
-            saved = state.saved;
+            newState = {
+                ...state,
+                error: "",
+                alert: false,
+                saved: state.saved + quantity,
+                balance: state.balance + quantity,
+                in: state.in.concat({ money: quantity, time: getDate() }),
+                messages: state.messages.concat({ money: quantity, time: getDate() })
+            }
         }
-        return {
-            balance: balance,
-            saved: saved,
-            max: state.max,
-            retired: state.retired,
-            alert: false, 
-            message: state.message
-        }
+
     } else if (action.type === MONEY_OUT) {
-        if (state.balance - parseInt(action.payload) >= 0) {
-            if (state.retired + parseInt(action.payload) <= state.max) {
-                return {
-                    balance: state.balance - parseInt(action.payload),
-                    saved: state.saved,
-                    max: state.max,
-                    retired: state.retired + (parseInt(action.payload)),
-                    alert: false,
-                    message: state.message
+        if (state.balance - quantity >= 0) {
+            if (state.retired + quantity <= state.max) {
+                if (quantity <= 0) {
+                    newState = {
+                        ...state
+                    }
+                } else {
+                    newState = {
+                        ...state,
+                        balance: state.balance - quantity,
+                        retired: state.retired + (quantity),
+                        alert: false,
+                        error: "",
+                        out: state.out.concat({ money: quantity, time: getDate() }),
+                        messages: state.messages.concat({ money: quantity * -1, time: getDate() })
+                    }
                 }
             } else {
-                return {
+                newState = {
                     ...state,
                     alert: true,
-                    message: "Límite Superado"
+                    error: "Límite superado"
                 }
             }
         } else {
-            return {
+            newState = {
                 ...state,
                 alert: true,
-                message: "Saldo Insufiente"
+                error: "Saldo insuficiente"
             }
         }
     }
-    return state;
+    console.log(newState);
+    return newState;
 }
 
 export default rootReducer;
