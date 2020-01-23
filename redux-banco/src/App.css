@@ -41,7 +41,7 @@
   color: rgb(73, 73, 73);
   background-image: url('./img/atm.png');
   background-repeat: no-repeat;
-  background-size: 82% 100%;
+  background-size: 95% 100%;
   background-position: center;
 }
 
@@ -60,7 +60,7 @@
   margin: auto;
   position: absolute;
   top: 75px;
-  left: 320px;
+  left: 240px;
 }
 
 .popup {  
@@ -91,14 +91,14 @@
 
 .history {  
   height: 50vh;
-  width: 300px;
+  width: 500px;
   background-color: #8097c4;
   border-style: solid;
   border-color: rgb(95, 95, 95);
   margin: auto;
   position: absolute;
   top: 75px;
-  left: 1045px; 
+  left: 950px; 
   padding-top: 25px;
   border-radius: 0px 43px 0px 0px;
 -moz-border-radius: 0px 43px 0px 0px;

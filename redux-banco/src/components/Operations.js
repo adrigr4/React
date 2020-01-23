@@ -47,8 +47,8 @@ class ConnectedOperations extends Component {
                     <label 
                         className="ml-5">Retirado: 
                         <input 
-                        disabled="true" 
-                        value={this.props.retired} 
+                        disabled={true}
+                        value={(this.props.retired).toLocaleString('de-DE')}
                         style={{ marginLeft: "30px", textAlign: 'center', backgroundColor: "#EFED65", color: "black" , width: "150px"}} 
                     />
                     €

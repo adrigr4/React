@@ -4,12 +4,6 @@ const mapStateToProps = state => {
     return { balance: state.balance, saved: state.pending };
 };
 class ConnectedBalance extends Component {
-    constructor(props) {
-        super(props);
-    }
-
-    handleChange = (event) => {
-    }
 
     render() {
         return (
@@ -20,17 +14,17 @@ class ConnectedBalance extends Component {
                 <h5>Saldo: 
                     <input 
                         type="number" 
-                        disabled="true" 
+                        disabled={true}
                         className="ml-5" 
-                        value={this.props.balance} 
+                        value={(this.props.balance).toLocaleString('de-DE')} 
                         style={{ flex: 1, textAlign: 'center'}} 
                     /> € 
                     <label 
                         className="ml-5">Pendiente: 
                         <input 
-                        disabled="true" 
+                        disabled={true}
                         className="ml-3" 
-                        value={this.props.saved} 
+                        value={(this.props.saved).toLocaleString('de-DE')} 
                         style={{ textAlign: 'center', backgroundColor: "#8CE764", color: "black" , width: "150px"}} 
                     />
                     €
