@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { moneyIn, moneyOut } from "../actions/index";
+import moneyGif from '../img/money1.gif';
+
 const mapStateToProps = state => {
     return { retired: state.retired };
 };
@@ -11,7 +13,8 @@ class ConnectedOperations extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            quantity: 0
+            quantity: 0,
+            imagen: false 
         }
     }
 
@@ -23,6 +26,7 @@ class ConnectedOperations extends Component {
         event.preventDefault();
         this.props.moneyIn(this.state.quantity);  
         this.setState({quantity: 0});
+
     }
 
     handleOut = (event) => {
@@ -56,6 +60,7 @@ class ConnectedOperations extends Component {
                 </h5>
                 <button  style={{marginLeft: "175px", paddingLeft: "40px", paddingRight: "40px", marginTop: "40px"}} className="btn btn-primary" onClick={this.handleIn}>Hacer ingreso</button>
                 <button style={{marginLeft: "40px", paddingLeft: "40px", paddingRight: "40px", marginTop: "40px"}} className="btn btn-primary" onClick={this.handleOut}>Retirar dinero</button>
+                <img src={moneyGif} className="moneyGif"></img>
             </>
         );
     }

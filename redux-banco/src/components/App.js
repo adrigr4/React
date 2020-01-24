@@ -49,7 +49,6 @@ class ConnectApp extends Component {
                 <History />
                 {this.state.showPopup ? <Popup text={this.state.msg} closePopup={this.togglePopup} /> : null}
             </div>
-            
             </>
         );
     }
