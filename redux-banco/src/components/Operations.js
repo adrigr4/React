@@ -14,7 +14,7 @@ class ConnectedOperations extends Component {
         super(props);
         this.state = {
             quantity: 0,
-            imagen: false 
+            imagen: {display: "none"} 
         }
     }
 
@@ -25,14 +25,18 @@ class ConnectedOperations extends Component {
     handleIn = (event) => {
         event.preventDefault();
         this.props.moneyIn(this.state.quantity);  
-        this.setState({quantity: 0});
-
+        this.setState({quantity: 0, imagen: {display: "inline"}});
+        setTimeout(this.imageOut, 1000);
     }
 
     handleOut = (event) => {
         event.preventDefault();
         this.props.moneyOut(this.state.quantity);  
         this.setState({quantity: 0});
+    }
+
+    imageOut = () => {
+        this.setState({quantity: this.state.quantity, imagen: {display: "none"}});
     }
 
     render() {
@@ -60,7 +64,7 @@ class ConnectedOperations extends Component {
                 </h5>
                 <button  style={{marginLeft: "175px", paddingLeft: "40px", paddingRight: "40px", marginTop: "40px"}} className="btn btn-primary" onClick={this.handleIn}>Hacer ingreso</button>
                 <button style={{marginLeft: "40px", paddingLeft: "40px", paddingRight: "40px", marginTop: "40px"}} className="btn btn-primary" onClick={this.handleOut}>Retirar dinero</button>
-                <img src={moneyGif} className="moneyGif"></img>
+                <img src={moneyGif} className="moneyGif" style={this.state.imagen}></img>
             </>
         );
     }

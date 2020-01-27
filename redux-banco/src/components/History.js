@@ -8,7 +8,7 @@ class ConnectedHistory extends Component {
 
     render() {
         let movs = this.props.movements.map((move) => 
-        <li><label className="mr-5">{move.time}</label><label className="ml-3">{move.money}</label><label className="ml-5">{move.action}</label></li>).slice(-9);
+        <li><label className="mr-5">{move.time}</label><label className="ml-2" style={{width: "40px"}}>{move.money}</label><label className="ml-5">{move.action}</label></li>).slice(-9);
         return (
             <div className="history">
                 <h5 style={{ textAlign: "center" }}>Movimientos </h5>
