@@ -1,5 +1,4 @@
 import { MONEY_IN, MONEY_OUT } from '../actions/action-types';
-import { update } from 'immutable';
 
 const initialState = {
     in: [],
