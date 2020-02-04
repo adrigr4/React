@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import UserList from './UserList';
-import UserForm from './UserForm';
+import UserForm from './Form';
 import '../App.css';
 
 class App extends Component {

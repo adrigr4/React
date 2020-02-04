@@ -25,11 +25,11 @@ class UserCard extends Component {
     render() {
         const user = this.getUserInfo(this.props.info)
         return (
-            <div className="card" style={{ width: "230px", height: "320px", float: "left", marginRight: "10px" , marginTop: "10px"}}>
+            <div className="card" style={{ width: "230px", height: "270px", float: "left", marginRight: "10px" , marginTop: "10px"}}>
                 <img className="card-img-top" src={user.picture} style={{ width: "230px", height: "170px" }} />
                 <div style={{ textAlign: "left" , paddingTop: "10px", paddingLeft: "10px", paddingBottom: "0px"}}>
                     <h4 style={{ fontSize: "17px" }}>{user.name}</h4>
-                    <label style={{ fontSize: "13px" }}>Email: {user.email} <p style={{ fontSize: "13px" }}>Direction: {user.direction}</p></label>
+                    <label style={{ fontSize: "13px" }}>{user.email} <p style={{ fontSize: "13px" }}>{user.direction}</p></label>
                 </div>
             </div>
         );
