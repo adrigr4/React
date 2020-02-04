@@ -47,10 +47,9 @@
 {
   position: relative;
   height: auto;
-  overflow: hidden;
   background-color: #ff9900;
   min-height: 100vh;
-  text-align: center;
+  padding-top: 0;
 }
 
 .UserList {

@@ -1,3 +1,5 @@
+import {getJSON, postJSON, deleteJSON} from './petitions';
+
 
 export function getUser(payload){
     return function (dispatch) {
@@ -20,18 +22,7 @@ export function getAllUsers(){
 }
 
 export function postUser(payload){
-    return function (dispatch) {
-        return fetch('https://localhost:44364/api/users'), {
-            method: 'POST',
-            body: JSON.stringify(payload.newUser),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
-        .then((response) => response.json())
-        .then((json) => {
-            dispatch({ type: 'POST_USER', payload: json})
-            console.log(json)
-        })
-    }
+
+    let data = postJSON('https://localhost:44364/api/users', payload.newUser, 'POST');
+    console.log(data);
 }

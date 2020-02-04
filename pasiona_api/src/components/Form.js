@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getUser, getAllUsers } from "../actions/index.js";
-import UserCard from "./UserCard.js";
 
 const mapStateToProps = state => {
     return { users: state.users };
@@ -36,8 +35,8 @@ class ConnectedUserForm extends Component {
     render() {
         return (
             <div style={{ display: "flex", alignContent: "center", marginLeft: "600px", marginTop: "20px", marginBottom: "20px" }}>
-                <button className="btn btn-secondary mr-3" onClick={this.getList}>User List </button>
-                <button className="btn btn-secondary mr-3" onClick={this.handleNew}>Get users </button>
+                <button className="btn btn-dark mr-3" onClick={this.getList}>User List </button>
+                <button className="btn btn-dark mr-3" onClick={this.handleNew}>Random Users </button>
                 <input id="quantity" type="number" className="form-control mr-3" style={{ width: "200px" }} value={this.state.quantity} onChange={this.handleEdit} min={1}></input>
             </div>
         );

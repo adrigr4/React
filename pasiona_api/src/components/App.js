@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import UserList from './UserList';
 import UserForm from './Form';
 import CreateUser from './CreateUser';
@@ -8,9 +7,10 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link,
-    useParams
+    Link
 } from "react-router-dom";
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
 
 class App extends Component {
 
@@ -18,9 +18,19 @@ class App extends Component {
         return (
             <div className="fondo">
                 <Router>
-                    <h1 style={{ color: "white", marginTop: "20px" }}>Pasiona</h1>
-                    <Link to="/UserList"><button className="btn btn-dark mr-2">Users</button></Link>
-                    <Link to="/CreateUser"><button className="btn btn-dark mr-2">New User</button></Link>
+                    <Navbar bg="dark" variant="ligth">
+                            <img
+                                src="https://pbs.twimg.com/profile_images/1105021443627196416/kJ5bSyDw_400x400.jpg"
+                                width="40"
+                                height="40"
+                                className="d-inline-block align-top"
+                                alt="React Bootstrap logo"
+                            />{' '}
+                        <Nav className="mr-auto">
+                            <Nav.Link href="/UserList" style={{color: "white", marginLeft: "15px"}}> Users</Nav.Link>
+                            <Nav.Link href="/CreateUser" style={{color: "white", marginLeft: "10px"}}>New User</Nav.Link>
+                        </Nav>
+                    </Navbar>
                     <Switch>
                         <Route path="/UserList" >
                             <UserForm />
@@ -31,7 +41,6 @@ class App extends Component {
                         </Route>
                     </Switch>
                 </Router>
-
             </div>
         );
     }

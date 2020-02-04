@@ -12,13 +12,6 @@ const mapDispatchToProps = {
 }
 
 class ConnectedUserList extends Component {
-    constructor(props) {
-        super(props);
-    }
-
-    componentDidMount() {
-        this.props.getUser(1);
-    }
 
     render() {
                 

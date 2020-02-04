@@ -1,18 +1,7 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 
 class UserCard extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     getUserInfo = (info) => {
-        /*const userInfo = {
-            name: info.name.first + " " + info.name.last,
-            picture: info.picture.large,
-            email: info.email,
-            direction: info.location.street.number + " " + info.location.street.name + ", " + info.location.city + ", " + info.location.state
-        }*/
         const userInfo = {
             name: info.firstName + " " + info.secondName,
             picture: info.picture,
@@ -22,16 +11,27 @@ class UserCard extends Component {
         return userInfo;
     }
 
+    handleEdit = (event) => {
+
+    }
+
+    handleDelete = (event) => {
+
+    }
+
     render() {
         const user = this.getUserInfo(this.props.info)
         return (
-            <div className="card" style={{ width: "230px", height: "270px", float: "left", marginRight: "10px" , marginTop: "10px"}}>
-                <img className="card-img-top" src={user.picture} style={{ width: "230px", height: "170px" }} />
-                <div style={{ textAlign: "left" , paddingTop: "10px", paddingLeft: "10px", paddingBottom: "0px"}}>
-                    <h4 style={{ fontSize: "17px" }}>{user.name}</h4>
-                    <label style={{ fontSize: "13px" }}>{user.email} <p style={{ fontSize: "13px" }}>{user.direction}</p></label>
+            <div className="card" style={{width: "15%", float: "left", marginRight: "10px", height: "360px"}}>
+                <img style={{height: "170px"}} className="card-img-top" src={user.picture} alt="Card image cap"/>
+                <div className="card-body">
+                    <h5 className="card-title">{user.name}</h5>
+                    <p className="card-text">{user.email}</p>
+                    <p className="card-text">{user.direction}</p>
+                    <button className="btn btn-primary" onClick={this.handleEdit} style={{position: "absolute", bottom: "5px", left: "45px"}}>Editar</button>
+                    <button className="btn btn-danger" onClick={this.handleDelete} style={{position: "absolute", bottom: "5px", left: "115px"}}>Borrar</button>
                 </div>
-            </div>
+          </div>
         );
     }
 }
