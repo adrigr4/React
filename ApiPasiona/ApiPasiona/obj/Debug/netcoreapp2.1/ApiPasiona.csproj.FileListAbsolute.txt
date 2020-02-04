@@ -1,0 +1,14 @@
+C:\Users\agranero\source\repos\ApiPasiona\ApiPasiona\bin\Debug\netcoreapp2.1\ApiPasiona.deps.json
+C:\Users\agranero\source\repos\ApiPasiona\ApiPasiona\bin\Debug\netcoreapp2.1\ApiPasiona.runtimeconfig.json
+C:\Users\agranero\source\repos\ApiPasiona\ApiPasiona\bin\Debug\netcoreapp2.1\ApiPasiona.runtimeconfig.dev.json
+C:\Users\agranero\source\repos\ApiPasiona\ApiPasiona\bin\Debug\netcoreapp2.1\ApiPasiona.dll
+C:\Users\agranero\source\repos\ApiPasiona\ApiPasiona\bin\Debug\netcoreapp2.1\ApiPasiona.pdb
+C:\Users\agranero\source\repos\ApiPasiona\ApiPasiona\obj\Debug\netcoreapp2.1\ApiPasiona.csprojAssemblyReference.cache
+C:\Users\agranero\source\repos\ApiPasiona\ApiPasiona\obj\Debug\netcoreapp2.1\ApiPasiona.csproj.CoreCompileInputs.cache
+C:\Users\agranero\source\repos\ApiPasiona\ApiPasiona\obj\Debug\netcoreapp2.1\ApiPasiona.RazorAssemblyInfo.cache
+C:\Users\agranero\source\repos\ApiPasiona\ApiPasiona\obj\Debug\netcoreapp2.1\ApiPasiona.RazorAssemblyInfo.cs
+C:\Users\agranero\source\repos\ApiPasiona\ApiPasiona\obj\Debug\netcoreapp2.1\ApiPasiona.AssemblyInfoInputs.cache
+C:\Users\agranero\source\repos\ApiPasiona\ApiPasiona\obj\Debug\netcoreapp2.1\ApiPasiona.AssemblyInfo.cs
+C:\Users\agranero\source\repos\ApiPasiona\ApiPasiona\obj\Debug\netcoreapp2.1\ApiPasiona.RazorTargetAssemblyInfo.cache
+C:\Users\agranero\source\repos\ApiPasiona\ApiPasiona\obj\Debug\netcoreapp2.1\ApiPasiona.dll
+C:\Users\agranero\source\repos\ApiPasiona\ApiPasiona\obj\Debug\netcoreapp2.1\ApiPasiona.pdb
