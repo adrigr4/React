@@ -48,8 +48,8 @@
   position: relative;
   height: auto;
   background-color: #ff9900;
+  
   min-height: 100vh;
-  padding-top: 0;
 }
 
 .UserList {

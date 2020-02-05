@@ -11,7 +11,10 @@ async function getJSON(url) {
 
 async function deleteJSON(url) {
     const options = {
-        method: 'DELETE'
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
     };
     const res = await fetch(url,options);
  

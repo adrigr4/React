@@ -14,9 +14,7 @@ function rootReducer(state = initialState, action) {
         return {
             users: action.payload
         }
-    } else if (action.type === POST_USER) {
-        console.log(action.payload)
-    } 
+    }
 
     return state;
 };

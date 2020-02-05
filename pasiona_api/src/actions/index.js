@@ -22,7 +22,12 @@ export function getAllUsers(){
 }
 
 export function postUser(payload){
-
     let data = postJSON('https://localhost:44364/api/users', payload.newUser, 'POST');
     console.log(data);
+}
+
+export function deleteUser(payload){
+    return function () {
+        deleteJSON('https://localhost:44364/api/users/'+payload.id)
+    }
 }
